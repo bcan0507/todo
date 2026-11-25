@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>할 일 목록</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>할 일</h1>
+      <time id="today" class="today"></time>
+    </header>
+
+    <form id="add-form" class="add" autocomplete="off" novalidate>
+      <label class="sr-only" for="new-todo">새 할 일</label>
+      <input id="new-todo" type="text" placeholder="무엇을 해야 하나요?" maxlength="200">
+      <button type="submit" class="btn-primary">추가</button>
+    </form>
+
+    <section class="card" aria-label="할 일 목록">
+      <ul id="list" class="list" role="list"></ul>
+      <p id="empty" class="empty" hidden></p>
+
+      <div class="bar">
+        <p id="count" class="count" aria-live="polite"></p>
+        <div class="filters" role="group" aria-label="목록 필터">
+          <button type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button type="button" data-filter="active" aria-pressed="false">진행 중</button>
+          <button type="button" data-filter="done" aria-pressed="false">완료</button>
+        </div>
+        <button type="button" id="clear-done" class="link-btn">완료 항목 삭제</button>
+      </div>
+    </section>
+
+    <div id="toast" class="toast" role="status" hidden>
+      <span id="toast-msg"></span>
+      <button type="button" id="toast-undo">되돌리기</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
